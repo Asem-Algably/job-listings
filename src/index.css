@@ -43,6 +43,7 @@ body {
 }
 
 *{
+  line-height: 100%;
   margin: 0;
   font-size: 0.9375rem;
   font-weight: 500;

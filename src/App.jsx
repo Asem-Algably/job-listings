@@ -6,30 +6,31 @@ function Job(props
 ) {
   return(
       <div className='job'>
-      <img src={`.${props.logo}`} alt={`${props.company} logo`} className='logo'/>
-      <div className='info'>
-      <div className="main_tags">
-        <h3>{props.company}</h3>
-        <h4>{props.newchance?"new!":null}</h4>
-        <h4>{props.featured?"featured!":null}</h4>
-      </div>
+        {props.featured?<div className='stroke'></div>:null}
 
-      <h2>{props.position}</h2>
+        <img src={`.${props.logo}`} alt={`${props.company} logo`} className='logo'/>
+        <div className='info'>
+        <div className="main_tags">
+          <h3>{props.company}</h3>
+          {props.newchance?<h4 className='tag first'>new!</h4>:null}
+          {props.featured?<h4 className='tag second'>featured!</h4>:null}
+        </div>
 
-      <div className="subinfo">
-        <span>{props.location}</span>
-        <span>.</span>
-        <span>{props.postedAt}</span>
-        <span>.</span>
-        <span>{props.contract}</span>
-      </div>
-      </div>
-      <div className='tablets'>
-        <p>{props.level}</p>
-        <p>{props.role}</p>
-        {props.languages && props.languages.map(lang => <span key={lang}>{lang} </span>)}
-        {props.tools && props.tools.map(tool => <span key={tool}>{tool} </span>)}
-      </div>
+        <h2>{props.position}</h2>
+
+        <div className="subinfo">
+          <span>{props.postedAt}</span>
+          <span>.</span>
+          <span>{props.contract}</span>
+          <span>.</span>
+          <span>{props.location}</span>
+        </div>
+        </div>
+        <div className='tablets'>
+          {props.tablets.map((tag, index) => (
+            <button key={index}>{tag}</button>  // Use key prop for each button
+          ))}
+        </div>
       </div>
   )
 }
@@ -52,13 +53,10 @@ function JobsWrapper({data}) {
         newchance={job.newchance}
         featured={job.featured}
         position={job.position}
-        role={job.role}
-        level={job.level}
         postedAt={job.postedAt}
         contract={job.contract}
         location={job.location}
-        languages={job.languages}
-        tools={job.tools}
+        tablets={[job.role,job.level,...job.languages,...job.tools]}
         />
       ))}
     </>

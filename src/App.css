@@ -25,6 +25,9 @@ header {
   background-color: #fff;
   border-radius: 5px;
   margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: -0.5rem 0.5rem 1rem hsla(180, 29%, 50%, 0.3); 
 }
 
 .job > *{
@@ -49,18 +52,59 @@ header {
 
 .main_tags{
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
 .subinfo {
   display: flex;
   gap: 1.125rem;
+  color: var(--dark_cyan);
 }
 
 .info h2 {
   font-size: 1.375rem;
   font-weight: 700;
   color: var(--very_dark_cyan);
+  margin: 0.75rem 0;
+}
+
+.main_tags > *{
+  font-weight: 700;
+  color: var(--desaturated_dark_cyan);
+}
+
+.main_tags h3{
+  margin-right: 0.5625rem;
+}
+
+/* 0.5625rem */
+
+.tag {
+  text-transform: uppercase;
+  border-radius: 0.85rem;
+  color: #fff;
+  background-color: var(--desaturated_dark_cyan);
+  padding: 0.5rem 0.5rem 0.3rem 0.5rem ;
+}
+
+.second {
+  background-color: var(--very_dark_cyan);
+}
+
+.job .stroke {
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  background-color: var(--desaturated_dark_cyan);
+  left: 0;
+  z-index: 99;
+}
+
+.tablet_button {
+  background-color: var(--background_cyan);
+  font-weight: 700;
+  color: var(--desaturated_dark_cyan);
 }
 
 @media (max-width: 375px) {
