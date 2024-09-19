@@ -72,6 +72,10 @@ header {
   margin: 0.75rem 0;
 }
 
+.info h2:hover{
+  color: var(--desaturated_dark_cyan);
+}
+
 .main_tags > *{
   font-weight: 700;
   color: var(--desaturated_dark_cyan);
@@ -109,7 +113,14 @@ header {
   font-weight: 700;
   color: var(--desaturated_dark_cyan);
   border: 0px;
+  border-radius: 0.2rem;
   padding: 0.625rem 0.75rem;
+  transition: all ease-in-out 0.1s;
+}
+
+.tablets button:hover {
+  background-color: var(--desaturated_dark_cyan);
+  color: var(--background_cyan);
 }
 
 @media (max-width: 375px) {
