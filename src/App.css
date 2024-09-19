@@ -10,6 +10,59 @@ header {
   background-image: url("./images/bg-header-desktop.svg");
 }
 
+.wrapper {
+  margin-inline: auto;
+  max-width: calc(1110px + 4rem);
+  padding-inline: 2rem;
+}
+
+.job {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 2rem 2.5rem;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+}
+
+.job > *{
+  flex: 0 0 auto;
+}
+
+.main_tags > *{
+  display: inline-block;
+}
+
+.subinfo > *{
+  display: inline-block;
+}
+
+.logo {
+  width: 5.625rem;
+}
+
+.tablets {
+  margin-left: auto;
+}
+
+.main_tags{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.subinfo {
+  display: flex;
+  gap: 1.125rem;
+}
+
+.info h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--very_dark_cyan);
+}
+
 @media (max-width: 375px) {
 
   header {

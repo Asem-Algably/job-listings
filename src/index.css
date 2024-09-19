@@ -31,16 +31,20 @@
 
 html {
   box-sizing: border-box;
-  font-size: 0.9375rem;
   font-weight: 500;
 }
 
 body {
   margin: 0;
-  display: flex;
-  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--background_cyan);
+  font-size: 0.9375rem;
+}
+
+*{
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 
