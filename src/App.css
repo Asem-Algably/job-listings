@@ -48,6 +48,9 @@ header {
 
 .tablets {
   margin-left: auto;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .main_tags{
@@ -101,10 +104,12 @@ header {
   z-index: 99;
 }
 
-.tablet_button {
+.tablets .tablet_button, button {
   background-color: var(--background_cyan);
   font-weight: 700;
   color: var(--desaturated_dark_cyan);
+  border: 0px;
+  padding: 0.625rem 0.75rem;
 }
 
 @media (max-width: 375px) {
