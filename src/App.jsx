@@ -23,6 +23,7 @@ function Job(props) {
           <span>{props.location}</span>
         </div>
       </div>
+      <div className="sepprator"></div>
       <div className='tablets'>
         {props.tablets.map((tag, index) => (
           <button className="tablet_button" key={index} onClick={() => props.addKeyword(tag)} >{tag}</button>
@@ -32,11 +33,16 @@ function Job(props) {
   );
 }
 
-function SearchBar() {
+function SearchBar({keywords, rmvKeyword}) {
   return (
-    <>
-      <h1>searchbar is initialized</h1>
-    </>
+    <div className='searchbar_container'>
+      {keywords.map((e, index) => (
+        <div className="searchbar_tag" key={index}>
+          <h2 className="searchbar_tag_text">{e}</h2>
+          <button className='tag_close' onClick={() => rmvKeyword(e)}><img src='../images/icon-remove.svg' alt='close' /></button> {/* Handle button click */}
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -63,7 +69,6 @@ function JobsWrapper({ data, keywords, addKeyword}) {
 
   const requested_props = keywords; // Use keywords directly
   const requestedjobs = extractObjectsContainingAll(requested_props, alljobcells);
-  console.log(requestedjobs)
 
   return (
     <>
@@ -76,26 +81,27 @@ function JobsWrapper({ data, keywords, addKeyword}) {
 
 function App() {
   const [keywords, setKeywords] = useState([]);
-  console.log(keywords)
 
   function addKeyword(word) {
     if (!keywords.includes(word)) {
       setKeywords([...keywords, word]); // Create a new array
-      console.log(keywords)
     }
   }
 
   function rmvKeyword(word) {
     setKeywords(keywords.filter(item => item !== word));
-    console.log(keywords)
   }
 
   return (
     <>
       <header></header>
       <div className="wrapper">
-        <SearchBar />
+        {keywords.length > 0 ? <SearchBar keywords={keywords} rmvKeyword={rmvKeyword}/> : <div className='filler'></div>}
         <JobsWrapper data={data} keywords={keywords} addKeyword={addKeyword}/>
+      </div>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://x.com/Asem_Algably_UX">Asem Algably</a>.
       </div>
     </>
   );

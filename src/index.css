@@ -36,7 +36,6 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
   background-color: var(--background_cyan);
   font-size: 0.9375rem;
