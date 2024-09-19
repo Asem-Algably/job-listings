@@ -28,7 +28,7 @@ function Job(props
         </div>
         <div className='tablets'>
           {props.tablets.map((tag, index) => (
-            <button key={index}>{tag}</button>  // Use key prop for each button
+            <button className="tablet_button" key={index}>{tag}</button>  // Use key prop for each button
           ))}
         </div>
       </div>
@@ -41,24 +41,35 @@ function SearchBar() {
   </>)
 }
 
-function JobsWrapper({data}) {
+function extractObjectsContainingAll(miny, largeArray) {
+  return largeArray.filter(obj => 
+    miny.every(keyword => obj.tablets.includes(keyword))
+  );
+}
+
+function JobsWrapper({data, keywords}) {
   console.log("done")
+
+  const alljobcells= data.map((job, index) => (
+    <Job key={index}
+    company={job.company}
+    logo={job.logo}
+    newchance={job.newchance}
+    featured={job.featured}
+    position={job.position}
+    postedAt={job.postedAt}
+    contract={job.contract}
+    location={job.location}
+    tablets={[job.role,job.level,...job.languages,...job.tools]}
+    />
+  ))
+
+  const requested_props= [job.role,job.level,...job.languages,...job.tools];
+  const requestedjobs= extractObjectsContainingAll(requested_props, alljobcells);
 
   return (
     <>
-      {data.map((job, index) => (
-        <Job key={index}
-        company={job.company}
-        logo={job.logo}
-        newchance={job.newchance}
-        featured={job.featured}
-        position={job.position}
-        postedAt={job.postedAt}
-        contract={job.contract}
-        location={job.location}
-        tablets={[job.role,job.level,...job.languages,...job.tools]}
-        />
-      ))}
+      
     </>
   );
 }
@@ -67,12 +78,25 @@ function App(className=appclass) {
   const [keywords, setkeywords] = useState([]);
   const jobsdata = data;
 
+  function addkeyword(word){
+    if (!keywords.includes(word)) {
+      
+      // Add the keyword if it's not found
+      setkeywords(keywords.push(keyword)); 
+
+    }
+  }
+
+  function rmvkeyword(word){
+    setkeywords(keywords.filter(item => item !== word))
+  }
+
   return (
     <>
       <header></header>
       <div className="wrapper">
         <SearchBar />
-        <JobsWrapper data={data} />
+        <JobsWrapper data={data} keywords={keywords} />
       </div>
     </>
   );
