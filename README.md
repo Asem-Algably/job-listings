@@ -47,7 +47,7 @@ Users should be able to:
 
 ### What I learned
 
-I made a react app with a state of key words which starts as an empty array then I created two unction one to remove and one to add key words to it then I passed them to the chirldren properties so they can edit the main state
+I made a react app with a state of key words which starts as an empty array then I created three functions one to remove keywords, one to add key words, and one to clear the array then I passed them to the chirldren properties so they can edit the main state while the display of the job components is based on a filter function that check whether or not it does have the required key words 
 
 ### Continued development
 
