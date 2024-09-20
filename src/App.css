@@ -7,7 +7,7 @@ header {
   height: 156px;
   width: 100%;
   background-color: var(--desaturated_dark_cyan);
-  background-image: url("./images/bg-header-desktop.svg");
+  background-image: url("../public/images/bg-header-desktop.svg");
 }
 
 .wrapper {
@@ -138,12 +138,18 @@ header {
   padding: 1.25rem 2.5rem;
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
   align-items: center;
   border-radius: 5px;
   box-shadow: -0.5rem 0.5rem 1rem hsla(180, 29%, 50%, 0.3); 
   margin-top: -2.22615625rem;
   margin-bottom: 2.2434375rem;
+}
+
+.elments-container {
+  flex-shrink: 1;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .searchbar_tag {
@@ -202,16 +208,13 @@ button.clearing_button:hover {
 @media (max-width: 375px) {
 
   header {
-    background-image: url("./images/bg-header-mobile.svg");
+    background-image: url("../public/images/bg-header-mobile.svg");
   }
   
 }
 
 @media (max-width: 500px) {
 
-  header {
-    background-image: url("./images/bg-header-mobile.svg");
-  }
 
   .sepprator {
     display: block;

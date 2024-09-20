@@ -36,12 +36,14 @@ function Job(props) {
 function SearchBar({keywords, rmvKeyword, clearkeywords}) {
   return (
     <div className='searchbar_container'>
+      <div className="elments-container">
       {keywords.map((e, index) => (
         <div className="searchbar_tag" key={index}>
           <h2 className="searchbar_tag_text">{e}</h2>
-          <button className='tag_close' onClick={() => rmvKeyword(e)}><img src='../images/icon-remove.svg' alt='close' /></button> {/* Handle button click */}
+          <button className='tag_close' onClick={() => rmvKeyword(e)}><img src="./images/icon-remove.svg" alt='close' /></button> {/* Handle button click */}
         </div>
       ))}
+      </div>
       <button className='clearing_button' onClick={clearkeywords}>clear</button>
     </div>
   );
