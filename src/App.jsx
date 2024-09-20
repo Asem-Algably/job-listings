@@ -33,7 +33,7 @@ function Job(props) {
   );
 }
 
-function SearchBar({keywords, rmvKeyword}) {
+function SearchBar({keywords, rmvKeyword, clearkeywords}) {
   return (
     <div className='searchbar_container'>
       {keywords.map((e, index) => (
@@ -42,6 +42,7 @@ function SearchBar({keywords, rmvKeyword}) {
           <button className='tag_close' onClick={() => rmvKeyword(e)}><img src='../images/icon-remove.svg' alt='close' /></button> {/* Handle button click */}
         </div>
       ))}
+      <button className='clearing_button' onClick={clearkeywords}>clear</button>
     </div>
   );
 }
@@ -92,11 +93,15 @@ function App() {
     setKeywords(keywords.filter(item => item !== word));
   }
 
+  function clearkeywords(){
+    setKeywords([])
+  }
+
   return (
     <>
       <header></header>
       <div className="wrapper">
-        {keywords.length > 0 ? <SearchBar keywords={keywords} rmvKeyword={rmvKeyword}/> : <div className='filler'></div>}
+        {keywords.length > 0 ? <SearchBar keywords={keywords} rmvKeyword={rmvKeyword} clearkeywords={clearkeywords}/> : <div className='filler'></div>}
         <JobsWrapper data={data} keywords={keywords} addKeyword={addKeyword}/>
       </div>
       <div class="attribution">

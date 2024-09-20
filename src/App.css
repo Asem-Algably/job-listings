@@ -79,6 +79,7 @@ header {
 
 .info h2:hover{
   color: var(--desaturated_dark_cyan);
+  cursor: pointer;
 }
 
 .main_tags > *{
@@ -127,6 +128,7 @@ header {
 .tablets button:hover {
   background-color: var(--desaturated_dark_cyan);
   color: var(--background_cyan);
+  cursor: pointer;
 }
 
 /* search bar */
@@ -168,6 +170,22 @@ button.tag_close {
 
 button.tag_close:hover {
   background-color: var(--very_dark_cyan);
+  cursor: pointer;
+}
+
+button.clearing_button {
+  background-color: #fff;
+  border: 0px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--desaturated_dark_cyan);
+  text-transform: capitalize;
+  margin-left: auto;
+}
+
+button.clearing_button:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
 }
 
 .filler {
@@ -179,7 +197,7 @@ button.tag_close:hover {
 }
 
 .attribution { font-size: 11px; text-align: center; margin-bottom: 2rem;}
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution a { color: var(--desaturated_dark_cyan); }
 
 @media (max-width: 375px) {
 
